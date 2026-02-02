@@ -1,0 +1,6 @@
+POST http://127.0.0.1:8000/search
+Content-Type: application/json
+
+{
+  "query": "What is Endee?"
+}
