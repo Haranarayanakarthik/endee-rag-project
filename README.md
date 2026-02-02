@@ -133,13 +133,8 @@ Metadata-based filtering
 
 Scalability testing with large datasets
 
-✅ Evaluation Criteria Mapping
-Requirement	Status
-Use of Endee	✅
-Vector Search Core	✅
-Practical AI Use Case	✅
-GitHub Hosted Project	✅
-Clean README	✅
-📜 License
 
-This project is for educational and evaluation purposes.
+Here is a sample output :
+<img width="985" height="580" alt="Screenshot 2026-02-02 152642" src="https://github.com/user-attachments/assets/0fbc19c1-9f7b-434a-983e-8398aaf50470" />
+
+<img width="1500" height="677" alt="Screenshot 2026-02-02 152702" src="https://github.com/user-attachments/assets/0908f09d-07ad-43f8-9783-e2e947788a7d" />
