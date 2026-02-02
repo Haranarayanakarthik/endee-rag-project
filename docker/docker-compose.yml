@@ -1,0 +1,9 @@
+services:
+  endee:
+    image: endeeio/endee-server:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - endee-data:/data
+volumes:
+  endee-data:
