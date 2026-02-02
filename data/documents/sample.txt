@@ -1,0 +1,2 @@
+A vector database stores high-dimensional vectors and enables fast semantic search.
+Endee is a high-performance vector database optimized with SIMD instructions.
