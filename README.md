@@ -1,39 +1,70 @@
-Semantic Search using Endee Vector Database
-📖 Project Overview
+📌 Semantic Search System using Endee Vector Database
+1. Project Overview
 
-This project implements a Semantic Search system using Endee as the vector database.
-Text documents are converted into vector embeddings and stored in Endee.
-When a user submits a query, it is embedded and matched against stored vectors using similarity search to retrieve the most relevant documents.
+Modern search systems often fail to understand the meaning of user queries and rely only on keyword matching. This leads to irrelevant results when different words express similar intent.
 
-The project demonstrates a real-world use case of vector databases for intelligent information retrieval.
+This project implements a Semantic Search system that retrieves documents based on context and meaning, rather than exact keywords. It uses Endee as the vector database to store and search embeddings generated from text documents.
 
-🚀 Key Features
+2. Problem Statement
 
-Semantic search based on meaning, not keywords
+Traditional keyword-based search systems:
 
-Vector storage and retrieval using Endee
+Fail to capture semantic meaning
 
-Sentence embeddings using SentenceTransformers
+Return poor results for natural language queries
 
-REST-based communication with the vector database
+Do not scale well for intelligent retrieval systems
 
-Modular and easy-to-extend design
+Objective:
+To build a practical AI system that uses vector similarity search to retrieve the most relevant documents based on user intent.
 
-🧠 Use Case
+3. System Design / Technical Approach
+High-Level Architecture
+User Query
+   ↓
+Text Embedding (SentenceTransformers)
+   ↓
+Vector Similarity Search (Endee)
+   ↓
+Top-K Relevant Documents
 
-This system can be used for:
+Technical Workflow
 
-Document search engines
+Input documents are converted into dense vector embeddings
 
-Knowledge base search
+Vectors are stored in Endee along with metadata
 
-Resume / article / note retrieval
+User queries are embedded using the same model
 
-Foundation for RAG (Retrieval Augmented Generation) pipelines
+Endee performs similarity search using vector distance
 
-Vector search is the core component of this project.
+Most relevant documents are returned
 
-🛠️ Tech Stack
+Vector search is the core mechanism of this system.
+
+4. Explanation of How Endee Is Used
+
+Endee is used as the vector database in this project.
+
+Role of Endee:
+
+Stores high-dimensional vector embeddings
+
+Performs fast similarity search
+
+Exposes a REST API for vector operations
+
+How the Project Interacts with Endee:
+
+Document vectors are inserted into Endee via API calls
+
+Query vectors are sent to Endee for similarity search
+
+Endee returns top-K matching vectors
+
+Endee runs as a separate service, and the project communicates with it over HTTP.
+
+5. Tech Stack
 
 Python
 
@@ -43,98 +74,61 @@ SentenceTransformers
 
 REST APIs
 
-Docker (for running Endee)
+Docker
 
-📂 Project Structure
+6. Project Structure
 endee-semantic-search/
-├── data/                  # Sample documents
+├── data/                  # Sample input documents
 ├── src/
-│   ├── insert_vectors.py  # Inserts document vectors into Endee
-│   ├── search.py          # Performs semantic search queries
-│   └── config.py          # Configuration (Endee URL, index name)
+│   ├── insert_vectors.py  # Inserts vectors into Endee
+│   ├── search.py          # Performs semantic search
+│   └── config.py          # Endee configuration
 ├── screenshots/           # Output screenshots (optional)
 ├── requirements.txt
 ├── README.md
 └── .gitignore
 
-🔗 Dependency: Endee Vector Database
-
-This project uses Endee as the vector database.
-
-You must fork and run Endee separately.
-
-Endee Repository:
-👉 https://github.com/EndeeLabs/endee
-
-⚙️ Setup Instructions
-1️⃣ Clone and Run Endee
+7. Setup Instructions
+Step 1: Fork and Run Endee
 git clone https://github.com/<your-username>/endee
 cd endee
 docker-compose up
 
 
-Endee will start at:
+Endee will be available at:
 
 http://localhost:8080
 
-2️⃣ Clone This Project
+Step 2: Clone This Project
 git clone https://github.com/<your-username>/endee-semantic-search
 cd endee-semantic-search
 
-3️⃣ Install Dependencies
+Step 3: Install Dependencies
 pip install -r requirements.txt
 
-▶️ How to Run the Project
-Step 1: Insert Documents into Endee
+8. Execution Instructions
+Insert Document Vectors
 python src/insert_vectors.py
 
 
-This:
+This step:
 
 Reads documents
 
-Converts them into embeddings
+Converts them to embeddings
 
-Stores vectors in Endee
+Stores them in Endee
 
-Step 2: Perform Semantic Search
+Perform Semantic Search
 python src/search.py
 
 
-Enter a query and the system will return the most semantically similar documents.
+9. Conclusion
 
-📊 Example Output
-User Query: "AI projects using vector databases"
-
-Top Results:
-1. Document ID: 3 | Similarity Score: 0.92
-2. Document ID: 7 | Similarity Score: 0.88
-3. Document ID: 1 | Similarity Score: 0.84
-
-🧩 How It Works (Architecture)
-User Query
-   ↓
-Sentence Transformer Embedding
-   ↓
-Vector Similarity Search (Endee)
-   ↓
-Top-K Relevant Documents
+This project demonstrates a real-world semantic search application using Endee as a vector database. It highlights how vector embeddings and similarity search can be used to build intelligent retrieval systems and serves as a strong foundation for future RAG-based applications.
 
 
-This architecture ensures fast and accurate semantic retrieval.
+Output from my device:
+<img width="985" height="580" alt="image" src="https://github.com/user-attachments/assets/0040137f-84d9-4309-a2ea-e4af5da4efc5" />
 
-🔮 Future Enhancements
-
-Add Retrieval Augmented Generation (RAG) with an LLM
-
-Web UI for search
-
-Metadata-based filtering
-
-Scalability testing with large datasets
-
-
-Here is a sample output :
-<img width="985" height="580" alt="Screenshot 2026-02-02 152642" src="https://github.com/user-attachments/assets/0fbc19c1-9f7b-434a-983e-8398aaf50470" />
-
-<img width="1500" height="677" alt="Screenshot 2026-02-02 152702" src="https://github.com/user-attachments/assets/0908f09d-07ad-43f8-9783-e2e947788a7d" />
+<img width="1500" height="677" alt="image" src="https://github.com/user-attachments/assets/d9e333d5-ae8a-4a2d-b768-dbb852bc2cf0" />
