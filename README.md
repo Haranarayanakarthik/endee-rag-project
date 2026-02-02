@@ -120,7 +120,6 @@ Vector Similarity Search (Endee)
    ↓
 Top-K Relevant Documents
 
-
 This architecture ensures fast and accurate semantic retrieval.
 
 🔮 Future Enhancements
